@@ -1,0 +1,15 @@
+.list-group-item
+{
+    max-height:300px;
+    min-height:300px;
+    margin-bottom:40px;
+    .img-responsive
+    {
+        max-height:200px;
+        margin:0 auto;
+    }
+    &:last-child
+    {
+             margin-bottom:40px;
+    }
+}
