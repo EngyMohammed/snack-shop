@@ -1,5 +1,5 @@
 <div class="col-xs-12 col-sm-6 col-md-4" >
-    <a href="#" class="list-group-item clearfix">
+    <a href="#" class="list-group-item clearfix" [routerLink]="['../details',item.id]">
   <h4 class=list-group-item-heading>{{item.name}}</h4>
   <img src="{{item.photoUrl}}" alt="{{item.name}}" class="img-responsive"/>
  </a>

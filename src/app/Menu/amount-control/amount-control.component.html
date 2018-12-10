@@ -1,0 +1,23 @@
+<div class="form-group form-group-options">
+    <div class="input-group input-group-option quantity-wrapper">
+    
+        <span class="input-group-addon input-group-addon-remove quantity-remove btn"
+        (click)="onDecremenet()">
+            <span class="glyphicon glyphicon-minus"></span>
+    </span>
+        
+        <input type="text" #amounttxt="ngModel" 
+         name="amounttxt" pattern="[1-9][0-9]*" 
+         [ngModel]="amount" [ngClass]="{'border-error':amounttxt.invalid && amounttxt.dirty}"
+         (ngModelChange)="amountChanged.emit($event);" 
+         class="form-control quantity-count" placeholder="1">
+        
+        <span class="input-group-addon input-group-addon-remove quantity-add btn"
+        (click)="onIncremenet()">
+            <span class="glyphicon glyphicon-plus"></span>
+        </span>
+        
+    </div>
+    <span *ngIf="amounttxt.invalid && amounttxt.dirty"
+    class="text-danger">The amount must be a numerical value more than zero </span>
+  </div>

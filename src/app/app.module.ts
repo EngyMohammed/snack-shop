@@ -9,6 +9,8 @@ import { MenuItemComponent } from './Menu/menu-item/menu-item.component';
 import { MenuListComponent } from './Menu/menu-list/menu-list.component';
 import { ItemDetailsComponent } from './Menu/menu-item/item-details/item-details.component';
 import { BasketComponent } from './Basket/basket/basket.component';
+import { AmountControlComponent } from './Menu/amount-control/amount-control.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,12 +18,14 @@ import { BasketComponent } from './Basket/basket/basket.component';
     MenuItemComponent,
     MenuListComponent,
     ItemDetailsComponent,
-    BasketComponent
+    BasketComponent,
+    AmountControlComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ItemsService],
   bootstrap: [AppComponent]

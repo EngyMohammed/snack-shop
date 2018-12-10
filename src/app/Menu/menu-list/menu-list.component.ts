@@ -11,7 +11,7 @@ export class MenuListComponent implements OnInit {
  public items: Item[];
   ngOnInit() {
     this.dataserive.getProducts().subscribe(
-      (results => this.items = results.items)
+      (results => this.items = (results.items))
     );
     
     console.log(this.items);
