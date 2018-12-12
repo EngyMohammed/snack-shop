@@ -14,7 +14,7 @@ export class MenuListComponent implements OnInit {
       (results => this.items = (results.items))
     );
     
-    console.log(this.items);
+   
   }
 
 }

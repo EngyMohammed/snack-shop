@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Item } from '../../item.model';
+import {Basket } from '../../../Basket/basket.model';
 import {ItemsService} from '../../../services/items.service';
+import {BasketService} from '../../../services/basket.service';
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-item-details',
@@ -9,9 +11,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ItemDetailsComponent implements OnInit {
   public item: Item;
-  public itemAmount: number =1;
+  public itemAmount:number = 1;
   private sub;
-  constructor(private route: ActivatedRoute, private dataserive: ItemsService ) { }
+  constructor(private route: ActivatedRoute, private dataserive: ItemsService,private basketService: BasketService ) { }
 
   ngOnInit() {
     this.route.params
@@ -19,24 +21,16 @@ export class ItemDetailsComponent implements OnInit {
         this.getItem(res.id);
     });
   }
-    getItem = (id) => {
-      
-      this.sub = this.dataserive.getProducts().subscribe(
-        results => {this.item = (results.items.find(item => item.id == id))
-      
-        }
-      );
-      
+  getItem = (id) => {
+       this.sub = this.dataserive.getProducts().subscribe(
+        results => {this.item = ((results.items).find(item => item.id == id))
+      });}
+    changeAmount = (newItemAmount: number) =>  this.itemAmount= newItemAmount;
+     addItemtoBasket= () => {
+       if(this.itemAmount > 0) {this.basketService.addToBasket(new Basket (this.item,this.itemAmount))}
     }
-    changeAmount = (newItemAmount: number) =>
-    {
-      this.itemAmount= newItemAmount;
-      console.log(this.itemAmount);
-    }
-    addItemtoBasket =  () =>
-    {
-      if(this.itemAmount > 0) 
-      console.log(this.itemAmount+'itemAdded');
-    }
+   ngOnDestroy() {
+      this.sub.unsubscribe();
+   }
 
 }

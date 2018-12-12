@@ -1,3 +1,57 @@
-<p>
-  basket works!
-</p>
+<h1>Shopping Cart</h1>
+<ng-container *ngIf="basketList">
+  <ng-container *ngIf="basketList.length > 0; else noCart">
+    <div class="row">
+      <div class="col-md-9 col-sm-12">
+        <p>You Have {{basketList.length}} items in your cart
+          <button class="btn btn-secondary btn-sm pull-right" (click)="clearAll()">Clear Shopping Cart</button>
+        </p>
+        <table class="table">
+          <thead>
+            <tr>
+             <th>Amount</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let basketItem of basketList;let i = index">
+             
+              <td>{{basketItem.amount}}</td>
+              <td >
+                {{basketItem.item.name}}
+              </td>
+              <td >{{basketItem.item.price * basketItem.amount | currency :'USD':true }}</td>
+              <td class="text-center"><button class=""(click)="removeBasketItem(i)"><i class="fa fa-trash"></i></button></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="table-secondary">
+              <th>Total Price: </th>
+              <th></th>
+              <th></th>
+              <th class="text-right">{{totalPrice | currency :'USD':true}}</th>
+            </tr>
+            <tr>
+
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="form-group">
+          <a class="btn btn-success pull-right" >Check Out</a>
+        </div>
+
+      </div>
+    </div>
+
+  </ng-container>
+
+</ng-container>
+
+
+
+<ng-template #noCart>
+  <p>You don't have any item in your cart</p>
+</ng-template>

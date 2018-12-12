@@ -12,5 +12,5 @@ constructor(private httpClient: HttpClient) {}
  getProducts(){
     return this.httpClient
       .get<Item[]>('https://api.myjson.com/bins/z9s2i');
-  };
+  }
 }

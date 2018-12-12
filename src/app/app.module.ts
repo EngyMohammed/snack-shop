@@ -19,8 +19,8 @@ import { FormsModule } from '@angular/forms';
     MenuListComponent,
     ItemDetailsComponent,
     BasketComponent,
-    AmountControlComponent
-  ],
+    AmountControlComponent,
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
