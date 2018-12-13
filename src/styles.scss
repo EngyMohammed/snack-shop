@@ -1,4 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
-$color-primary : white;
-$color-secondary:black;
-$color-default:red;
+$color-primary :#c32e28;
+$color-secondary:#fff;
+$border-color:#ccc;
+
+.margin-auto
+{
+margin:0 auto;
+}
+.border{
+border:1px solid $border-color;
+}
+.item-price
+{
+color:#B12704 !important;
+}
+.padding-20
+{
+padding:20px;
+}
+
+.btn-primary{
+    color: $color-secondary;
+    background-color: $color-primary;
+    border-color: darken($color-primary,10);
+	&:hover,&:active,&:active:hover
+	{
+	background-color: darken($color-primary,10);
+	}
+}
+.btn-secondary
+{
+ background-color: $color-secondary;
+    color: $color-primary;
+    border-color: $color-primary;
+}

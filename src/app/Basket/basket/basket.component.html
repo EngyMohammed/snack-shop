@@ -23,7 +23,7 @@
                 {{basketItem.item.name}}
               </td>
               <td >{{basketItem.item.price * basketItem.amount | currency :'USD':true }}</td>
-              <td class="text-center"><button class=""(click)="removeBasketItem(i)"><i class="fa fa-trash"></i></button></td>
+              <td><button class="btn btn-secondary" (click)="removeBasketItem(i)"><i class="fa fa-trash"></i></button></td>
             </tr>
           </tbody>
           <tfoot>
